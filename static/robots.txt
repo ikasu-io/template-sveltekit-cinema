@@ -1,0 +1,5 @@
+# allow crawling everything
+User-agent: *
+Allow: /
+
+Sitemap: https://theorrery.example/sitemap.xml
