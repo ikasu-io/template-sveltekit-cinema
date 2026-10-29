@@ -20,3 +20,13 @@ title and colour (`src/lib/components/Poster.svelte`). The logo and
 favicon are SVG drawings made for this site, under the same licence. The
 fonts Big Shoulders Display and Literata are under the SIL Open Font
 License (`static/fonts/OFL-*.txt`).
+
+## Videos
+
+The trailers in `static/videos/` are slow zooms over three of the photos
+above (`facade-night`, `audience`, `kids-club`), made with ffmpeg: 4
+seconds, 640×360, no sound, as H.264 MP4 and VP9 WebM, with the first frame
+as the poster. Same licence as the photos.
+
+The interview on the page for *Static* is a stand-in: Blender's "Big Buck
+Bunny" (CC BY 3.0, Blender Foundation), embedded from YouTube.

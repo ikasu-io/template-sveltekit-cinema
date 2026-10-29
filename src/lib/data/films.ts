@@ -7,6 +7,10 @@
 //
 // `times`: start times per weekday (mon … sun), 24-hour clock. A day that
 // isn't listed has no screening. `tags` add a label to every screening.
+//
+// `trailer` (optional): the same clip in one or more formats, the browser
+// plays the first it supports, and a still shown before it plays. Files go
+// in static/videos/. `interview` (optional): a video embedded from YouTube.
 
 export type Weekday = 'mon' | 'tue' | 'wed' | 'thu' | 'fri' | 'sat' | 'sun';
 export type Certificate = 'U' | 'PG' | '12A' | '15' | '18';
@@ -28,6 +32,11 @@ export interface Film {
 	run: { from: string; until: string }; // YYYY-MM-DD, both days included
 	times: Partial<Record<Weekday, string[]>>;
 	tags?: Tag[];
+	trailer?: {
+		sources: { src: string; type: string }[];
+		poster: string;
+	};
+	interview?: { src: string; title: string };
 }
 
 export const films: Film[] = [
@@ -70,7 +79,14 @@ export const films: Film[] = [
 		screen: 1,
 		run: { from: '2026-10-09', until: '2027-03-31' },
 		times: { tue: ['20:40'], wed: ['20:40'], thu: ['20:40'], sat: ['20:45'], sun: ['20:00'] },
-		tags: ['35mm']
+		tags: ['35mm'],
+		trailer: {
+			sources: [
+				{ src: '/videos/night-ferry-trailer.webm', type: 'video/webm' },
+				{ src: '/videos/night-ferry-trailer.mp4', type: 'video/mp4' }
+			],
+			poster: '/videos/night-ferry-trailer-poster.jpg'
+		}
 	},
 	{
 		slug: 'the-orchard-keepers',
@@ -87,7 +103,14 @@ export const films: Film[] = [
 		screen: 2,
 		run: { from: '2026-09-25', until: '2027-03-31' },
 		times: { tue: ['14:30', '19:00'], thu: ['14:30', '19:00'], sat: ['16:30'], sun: ['11:00'] },
-		tags: ['subtitled']
+		tags: ['subtitled'],
+		trailer: {
+			sources: [
+				{ src: '/videos/the-orchard-keepers-trailer.webm', type: 'video/webm' },
+				{ src: '/videos/the-orchard-keepers-trailer.mp4', type: 'video/mp4' }
+			],
+			poster: '/videos/the-orchard-keepers-trailer-poster.jpg'
+		}
 	},
 	{
 		slug: 'static',
@@ -104,7 +127,11 @@ export const films: Film[] = [
 		screen: 2,
 		run: { from: '2026-10-16', until: '2027-03-31' },
 		times: { wed: ['19:15'], fri: ['19:00'], sat: ['21:00'] },
-		tags: ['Q&A']
+		tags: ['Q&A'],
+		interview: {
+			src: 'https://www.youtube-nocookie.com/embed/aqz-KE-bpKQ',
+			title: 'Interview with Priya Venkatesan'
+		}
 	},
 	{
 		slug: 'little-giants',
@@ -121,7 +148,14 @@ export const films: Film[] = [
 		screen: 2,
 		run: { from: '2026-10-02', until: '2027-03-31' },
 		times: { sat: ['10:30', '13:00'], sun: ['13:00'], wed: ['10:30'] },
-		tags: ['relaxed']
+		tags: ['relaxed'],
+		trailer: {
+			sources: [
+				{ src: '/videos/little-giants-trailer.webm', type: 'video/webm' },
+				{ src: '/videos/little-giants-trailer.mp4', type: 'video/mp4' }
+			],
+			poster: '/videos/little-giants-trailer-poster.jpg'
+		}
 	},
 	{
 		slug: 'the-quiet-year',

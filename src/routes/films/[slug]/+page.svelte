@@ -86,6 +86,30 @@
 		<p class="book">
 			Book at the box office or call <a href="tel:{site.phone.replaceAll(' ', '')}">{site.phone}</a>.
 		</p>
+
+		{#if film.trailer}
+			<h2 class="media-title">Trailer</h2>
+			<video class="media" controls preload="none" poster={film.trailer.poster} width="640" height="360">
+				{#each film.trailer.sources as source (source.src)}
+					<source src={source.src} type={source.type} />
+				{/each}
+				Your browser can’t play this trailer.
+			</video>
+		{/if}
+		{#if film.interview}
+			<h2 class="media-title">Interview</h2>
+			<iframe
+				class="media"
+				src={film.interview.src}
+				title={film.interview.title}
+				loading="lazy"
+				width="640"
+				height="360"
+				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+				referrerpolicy="strict-origin-when-cross-origin"
+				allowfullscreen
+			></iframe>
+		{/if}
 	</div>
 </article>
 
@@ -178,6 +202,19 @@
 	.book {
 		margin-top: 1.5rem;
 		color: var(--muted);
+	}
+	.media-title {
+		margin-top: 3rem;
+		font-size: 2rem;
+	}
+	.media {
+		display: block;
+		width: 100%;
+		height: auto;
+		aspect-ratio: 16 / 9;
+		margin-top: 1rem;
+		border: 0;
+		background: var(--smoke);
 	}
 	.more {
 		padding-top: 0;
