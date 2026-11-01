@@ -21,7 +21,7 @@
 		</div>
 	</div>
 	<div class="container bottom">
-		<p>Fictional demo site — content and images generated with AI</p>
+		<p>Fictional demo site — content, images and videos generated with AI</p>
 		<p><a href="/about/">About the cinema</a> · <a href="/visit/">Prices &amp; access</a></p>
 	</div>
 </footer>

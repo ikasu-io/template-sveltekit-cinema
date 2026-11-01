@@ -1,8 +1,8 @@
 # The Orrery — an independent cinema website built with SvelteKit
 
 > **The Orrery is a fictional cinema.** The town of Halwick, the people,
-> the films and the photos are all made up. The site, its content and its
-> images were generated with AI, and it is maintained with
+> the films and the photos are all made up. The site, its content, its
+> images and its videos were generated with AI, and it is maintained with
 > [Ikasu](https://ikasu.io), an AI content copilot for static sites.
 > Use it as a starting point for your own cinema, theatre or venue.
 
@@ -54,6 +54,14 @@ off at the next build.
 `npm run build` writes a static site to `build/`. Any static host works:
 Netlify, Cloudflare Pages, GitHub Pages, your own server. Set `url` in
 `src/lib/data/site.ts` to your domain.
+
+## Using this for a real site
+
+The images and videos look real but were generated with AI, and the
+notice in the footer is what labels them. If you publish a real site with
+them and remove that notice, you may have to label them yourself, for
+example under Article 50 of the EU AI Act. Replacing them with your own
+avoids the question.
 
 ## Licence
 
